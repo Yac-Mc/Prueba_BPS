@@ -20,7 +20,7 @@ namespace BPS_Api.Handlers
                              "Proceso: " + processName + "\r\n\t\t\t" +
                              "StackTrace" + exception.ToString();
 
-            string pathLog = "C://Bizagi//DLL//YOE//Log_API_BPS";
+            string pathLog = "C://Tem_Prueba_BPS//Log_API_BPS";
             string fileLogName = "Log_API_BPS.txt";
 
             Directory.CreateDirectory(pathLog);
