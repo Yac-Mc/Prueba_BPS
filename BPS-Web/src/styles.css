@@ -1,0 +1,19 @@
+html,
+body,
+h1,
+label {
+    background-color: #1C1C1C;
+    color: white;
+}
+
+hr {
+    background-color: gray;
+}
+
+.table {
+    color: white;
+}
+
+.thead-dark {
+    text-align: center;
+}

@@ -1,0 +1,44 @@
+<table class="table mt-3 animate__animated animate__fadeIn">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Herramientas</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="teachers && teachers.length > 0">
+        <tr *ngFor="let teacher of teachers; let i = index">
+            <th width="10%" scope="row">{{i + 1}}</th>
+            <td width="15%">{{teacher.Id}}</td>
+            <td width="50%">{{teacher.TeacherName}}</td>
+            <td>
+                <button class="btn btn-info mr-1" [routerLink]="['/update-new', teacher.Id, 'profesor']">
+                    Actualizar
+                    <i class="fa fa-pen"></i>
+                </button>
+                <button class="btn btn-danger float-right" (click)="deleterRegister(teacher, i, 'profesor')">
+                    Borrar
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+    <tbody *ngIf="students && students.length > 0">
+        <tr *ngFor="let student of students; let i = index">
+            <th width="10%" scope="row">{{i + 1}}</th>
+            <td width="15%">{{student.Id}}</td>
+            <td width="50%">{{student.StudentName}}</td>
+            <td>
+                <button class="btn btn-info mr-1" [routerLink]="['/update-new', student.Id, 'estudiante']">
+                    Actualizar
+                    <i class="fa fa-pen"></i>
+                </button>
+                <button class="btn btn-danger float-right" (click)="deleterRegister(student, i, 'estudiante')">
+                    Borrar
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

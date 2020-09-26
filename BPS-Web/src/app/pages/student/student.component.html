@@ -1,0 +1,23 @@
+<h1>Listado de estudiantes</h1>
+<hr>
+
+<div *ngIf="!loading && students.length > 0">
+    <app-table-teach-stud [students]="students"></app-table-teach-stud>
+</div>
+
+<div *ngIf="loading" class="animate__animated animate__fadeIn">
+    <app-loading></app-loading>
+</div>
+
+<div *ngIf="!loading && students.length === 0" class="alert alert-warning text-center mt-3 animate__animated animate__fadeIn">
+    <h4 class="alert-heading">No hay registros</h4>
+    <p>
+        <i class="fa fa-exclamation fa-2x"></i>
+    </p>
+</div>
+
+<div class="row mt-5 !loading">
+    <div class="col text-right">
+        <button class="btn btn-primary btn-block" routerLink="/update-new/nuevo/estudiante"><i class="fa fa-plus"></i>Agregar nuevo estudiante</button>
+    </div>
+</div>

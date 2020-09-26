@@ -1,0 +1,93 @@
+<h1>Listado de Notas</h1>
+<hr>
+
+<table *ngIf="notes.length > 0" class="table mt-3 animate__animated animate__fadeIn">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Id Estudiante</th>
+            <th scope="col">Id Profesor</th>
+            <th scope="col">Herramientas</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="notes && notes.length > 0">
+        <tr *ngFor="let note of notes; let i = index">
+            <th width="5%" scope="row">{{i + 1}}</th>
+            <td width="10%">{{note.Id}}</td>
+            <td width="20%">{{note.NoteName}}</td>
+            <td width="20%">{{note.IdTeacher}}</td>
+            <td width="20%">{{note.IdStudent}}</td>
+            <td>
+                <button class="btn btn-info mr-1" (click)="updateRegister(note, i)">
+                    Actualizar
+                    <i class="fa fa-pen"></i>
+                </button>
+                <button class="btn btn-danger float-right" (click)="deleteRegister(note, i)">
+                    Borrar
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="!loading && notes.length === 0" class="alert alert-warning text-center mt-3 animate__animated animate__fadeIn">
+    <h4 class="alert-heading">No hay registros</h4>
+    <p>
+        <i class="fa fa-exclamation fa-2x"></i>
+    </p>
+</div>
+
+<div class="row mt-5 !loading">
+    <div class="col text-right">
+        <button class="btn btn-primary btn-block" (click)="addRegister(mymodal)"><i class="fa fa-plus"></i>Agregar nuevo estudiante</button>
+    </div>
+</div>
+
+<ng-template #mymodal let-modal>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2 text-right">
+                        <label>Nombre</label>
+                    </div>
+                    <div class="col-8 text-left">
+                        <input [(ngModel)]="NoteName" type="text" placeholder="Nombre de la nota">
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3 text-right">
+                        <label>Id profesor</label>
+                    </div>
+                    <div class="col-8 text-left">
+                        <input [(ngModel)]="IdTeacher" type="number" placeholder="Id profesor">
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-3 text-right">
+                        <label>Id estudiante</label>
+                    </div>
+                    <div class="col-8 text-left">
+                        <input [(ngModel)]="IdStudent" type="text" placeholder="Id estudiante">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="col-12">
+            <button type="button" class="btn btn-primary btn-block" (click)="modal.close()">Guardar</button>
+        </div>
+    </div>
+</ng-template>

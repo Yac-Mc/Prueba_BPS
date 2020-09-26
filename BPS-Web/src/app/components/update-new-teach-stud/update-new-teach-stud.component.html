@@ -1,0 +1,45 @@
+<h1>{{type | titlecase}}</h1>
+<hr>
+
+<div class="row text-right">
+
+    <div class="col">
+        <button class="btn btn-danger" (click)="return()"><i class="fa fa-arrow-left"></i>Regresar</button>
+    </div>
+
+</div>
+
+<div class="row animate__animated animate__fadeIn">
+
+    <div class="col">
+
+        <form [formGroup]="form" (ngSubmit)="saveRegister()">
+
+            <div class="form-group">
+
+                <label>Id</label>
+                <input type="number" class="form-control" [placeholder]="'Id del ' + type " formControlName="id">
+
+            </div>
+
+            <div class="form-group">
+
+                <label>Nombre</label>
+                <input type="text" class="form-control" [placeholder]="'Nombre del '+ type" formControlName="name">
+
+            </div>
+            <hr>
+            <div class="form-group text-center">
+
+                <button type="submit" class="btn btn-primary w-25">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
